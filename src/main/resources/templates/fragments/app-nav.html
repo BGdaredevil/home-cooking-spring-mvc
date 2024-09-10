@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<header th:fragment="app-nav(user)">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes/all">Recipes</a></li>
+            <li><a href="/recipes/search">Search</a></li>
+            <li><a href="/auth/login" th:if="${user} == null">Login</a></li>
+            <li><a href="/auth/register" th:if="${user} == null">Register</a></li>
+            <li><a href="/recipes/add" th:if="${user} != null">Add Recipe</a></li>
+            <li><a href="/auth/logout" th:if="${user} != null">Logout</a></li>
+        </ul>
+        --[[${user}]]-- // user
+    </nav>
+</header>
+</html>

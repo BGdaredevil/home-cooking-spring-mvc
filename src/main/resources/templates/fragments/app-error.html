@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+{{#if error}}
+<div th:fragment="app-error" class="error-container">
+    <!--    <p>-->
+    <!--        {{#each error}}-->
+    <!--        {{message}}<br/>-->
+    <!--        {{/each}}-->
+    <!--    </p>-->
+    {{#each error}}
+    <p>
+        {{message}}
+    </p>
+    {{/each}}
+</div>
+{{/if}}
+</html>

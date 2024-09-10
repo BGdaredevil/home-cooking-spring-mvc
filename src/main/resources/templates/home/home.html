@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<head th:replace="~{ fragments/app-head :: app-head('Recipes / Home') }"></head>
+<body>
+<header th:replace="~{ fragments/app-nav :: app-nav(${user}) }"></header>
+
+<main>
+    <div th:replace="~{ fragments/app-error :: app-error }" th:remove="tag"></div>
+    <section class="hero">
+        <h2>Welcome to Home Cooking Recipes</h2>
+        <p>Your go-to place for delicious and easy-to-make recipes.</p>
+        <a href="#" class="btn">Explore Recipes</a>
+    </section>
+    <section class="featured-recipes">
+        <h2>Featured Recipes</h2>
+        <div class="recipes">
+            <div th:if="${not #lists.isEmpty(latestItems)}"
+                 th:each="item : ${latestItems}"
+                 th:remove="tag"
+            >
+                <article th:replace="~{ fragments/home-last-items :: home-last-items(${item})}" th:remove="tag"></article>
+            </div>
+            <p th:if="${#lists.isEmpty(latestItems)}" class="no-post">There are no recipes found yet!</p>
+        </div>
+    </section>
+</main>
+<footer th:replace="~{ fragments/app-footer :: app-footer }"></footer>
+</body>
+</html>

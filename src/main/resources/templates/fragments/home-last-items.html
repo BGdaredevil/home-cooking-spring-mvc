@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<article th:fragment="home-last-items (item)" class="recipe">
+    <img src="https://www.wholesomeyum.com/wp-content/uploads/2020/11/wholesomeyum-Stir-Fry-Vegetables-15.jpg"
+         alt="Vegetable Stir Fry">
+    <h3>Vegetable Stir Fry</h3>
+    <p>A quick and easy stir fry with fresh vegetables and a savory sauce. </p>
+    <p th:text="${item}">A quick and easy stir fry with fresh vegetables and a savory sauce. </p>
+    <a href="#">Read More</a>
+</article>
+</html>
