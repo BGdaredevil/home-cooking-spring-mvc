@@ -1,6 +1,5 @@
 package com.cooking.home_recipes;
 
-import com.google.gson.Gson;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,11 +13,13 @@ public class HomeRecipesApplication {
         Properties config = new Properties();
         config.put("server.port", "3030");
         config.put("spring.http.converters.preferred-json-mapper", "gson");
-        System.out.println("asd");
-        app.setDefaultProperties(config);
-        app.run(args);
 
+        app.setDefaultProperties(config);
+
+        app.run(args);
 //		SpringApplication.run(HomeRecipesApplication.class, args);
     }
+
+
 
 }
