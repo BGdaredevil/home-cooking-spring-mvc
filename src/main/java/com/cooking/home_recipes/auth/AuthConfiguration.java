@@ -47,12 +47,18 @@ public class AuthConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(HttpMethod.GET, "/**").permitAll();
-                    auth.requestMatchers(HttpMethod.GET, "/auth/login").not().authenticated();
+
+                    auth.requestMatchers(HttpMethod.GET, "/auth/login").anonymous();
+                    auth.requestMatchers(HttpMethod.POST, "/auth/login").anonymous();
+                    auth.requestMatchers(HttpMethod.GET, "/auth/register").anonymous();
+                    auth.requestMatchers(HttpMethod.POST, "/auth/register").anonymous();
                     auth.requestMatchers(HttpMethod.GET, "/auth/logout").authenticated();
+
                     auth.requestMatchers(HttpMethod.PUT, "/**").authenticated();
                     auth.requestMatchers(HttpMethod.POST, "/**").authenticated();
                     auth.requestMatchers(HttpMethod.PATCH, "/**").authenticated();
                     auth.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
-                }).build();
+                })
+                .build();
     }
 }
