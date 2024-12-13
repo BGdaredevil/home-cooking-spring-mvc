@@ -1,6 +1,7 @@
 package com.cooking.home_recipes.controllers;
 
 import com.cooking.home_recipes.dtos.LoginDto;
+import com.cooking.home_recipes.dtos.RegisterDto;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,7 @@ public class AuthController {
     @GetMapping("/login")
     public String getLogin(Model model) {
 
-        model.addAttribute("item", new LoginDto());
+//        model.addAttribute("item", new LoginDto());
         System.out.println(model);
         return "auth/login";
     }
@@ -24,15 +25,18 @@ public class AuthController {
         return "auth/register";
     }
 
-    @PostMapping(path = "/login", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE} )
-//    @PostMapping(path = "/login")
-    public String login( LoginDto item) {
-        System.out.println(item);
+//    @PostMapping(path = "/login", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+////    @PostMapping(path = "/login")
+//    public String login(LoginDto item) {
+//        System.out.println(item);
+//
+//        return "auth/login";
+//    }
 
-        return "auth/login";
-    }
-    @PostMapping("/register")
-    public String register() {
+    @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public String register(RegisterDto item) {
+        System.out.println(item);
+        // userService.register
         return "auth/register";
     }
 
