@@ -1,15 +1,20 @@
 package com.cooking.home_recipes.dtos;
 
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 public class LoginDto {
     private String email;
     private String password;
 
-    LoginDto(String email, String password) {
+    public LoginDto(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public LoginDto(String email) {
+        this(email, "");
+    }
+
+    public LoginDto() {
+        this("", "");
     }
 
     public String getEmail() {
@@ -18,5 +23,13 @@ public class LoginDto {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
