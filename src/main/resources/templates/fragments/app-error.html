@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
-{{#if error}}
-<div th:fragment="app-error" class="error-container">
-    <!--    <p>-->
-    <!--        {{#each error}}-->
-    <!--        {{message}}<br/>-->
-    <!--        {{/each}}-->
-    <!--    </p>-->
-    {{#each error}}
-    <p>
-        {{message}}
-    </p>
-    {{/each}}
+<div th:fragment="app-error" th:remove="${#lists.isEmpty(errors)}? tag : none" class="error-container">
+    <div th:if="${not #lists.isEmpty(errors)}" th:remove="tag">
+        <p th:each="error : ${errors.messages}" th:text="${error.message}"></p>
+    </div>
 </div>
-{{/if}}
 </html>
